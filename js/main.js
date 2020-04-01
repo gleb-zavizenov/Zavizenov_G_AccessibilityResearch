@@ -12,6 +12,18 @@ const vm = new Vue({
       captions: false
     },
 
+    mounted(){
+        window.addEventListener("keypress", function(e) {
+            if(e.keyCode == 32 && document.querySelector(".video-lightbox").classList.contains('video-lightbox-show')){
+                if(document.querySelector(".video-lightbox-container video").paused){
+                    this.playVideo();
+                } else {
+                    this.pauseVideo();
+                }
+            }
+        }.bind(this));
+    },
+
     methods:{
         openLightbox(index){
             this.selectedIndex = parseInt(index);
