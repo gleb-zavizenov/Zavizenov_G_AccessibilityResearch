@@ -35,6 +35,9 @@
                     <div class="sound-btn">
                         <img class="sound-on"  @click="muteVideo()" src="icons/sound.svg" alt="sound-icon">
                         <img class="sound-off" @click="unmuteVideo()" src="icons/muted.svg" alt="sound-icon">
+                        <div class="sound-change-bar">
+                            <input v-on:input="changeVolume($event.target.value)" type="range" name="volume" class="sound-range" min="0" max="1" step="0.05" value="1">
+                        </div>
                     </div>
                     <button class="captions-btn" @click="showSubs()">CC</button>
                 </div>
