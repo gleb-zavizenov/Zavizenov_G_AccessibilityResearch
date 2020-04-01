@@ -8,6 +8,14 @@ body{
     height:100%;
 }
 
+a:focus{
+    outline: 5px solid lightgreen;
+}
+
+img:focus{
+    outline: 5px solid lightgreen;
+}
+
 main{
     width:100%;
     height: 100%;
