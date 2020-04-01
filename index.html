@@ -51,8 +51,8 @@
                         <img :src="'images/' + block.image" :alt="block.name + ' poster'">
                     </div>
                     <div class="button-wrapper">
-                        <a class="open-lightbox-btn" :id="index" @click="openLightbox(index)">Watch Now</a>
-                        <a class="download-content-btn" :href="'./includes/' + block.transcript" download>Download Transcript</a>
+                        <a class="open-lightbox-btn" :id="index" href="#" title="watch now" @click.prevent="openLightbox(index)">Watch Now</a>
+                        <a class="download-content-btn" :href="'./includes/' + block.transcript" title="donwload transcript" download>Download Transcript</a>
                     </div>
                 </div>
             </div>
