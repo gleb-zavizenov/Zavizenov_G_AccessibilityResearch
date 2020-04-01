@@ -25,6 +25,8 @@ const vm = new Vue({
             this.pauseVideo();
             this.unmuteVideo();
             this.captions = false;
+            document.querySelector(".captions-btn").style.backgroundColor = "white";
+            document.querySelector(".captions-btn").style.color = "black";
             video.currentTime = 0;
             video.muted = false;
         },
