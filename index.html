@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png">
+    <title>Accessibility Research</title>
+</head>
+<body>
+    <main id="app">
+        <div class="video-lightbox">
+            <div class="container video-lightbox-container">
+                <a href="#" @click.prevent="closeLightbox()">
+                    <img src="icons/cross.svg" alt="close icon">
+                </a>
+                <video class="video" @timeupdate="displayTime">
+                    <source src="video/" type="video/mp4">
+                </video>
+                <div class="video-controls">
+                    <button class="play-btn" @click="playVideo()">
+                        <img src="icons/play.svg" alt="play icon">
+                    </button>
+                    <button class="stop-btn" @click="pauseVideo()">
+                        <img src="icons/stop.svg" alt="stop icon">
+                    </button>
+                    <div class="controls-timecode">
+                        <div class="white-line" @click = "moveTime($event)">
+                            <div class="red-line"></div>
+                        </div>
+                    </div>
+                    <div class="sound-btn">
+                        <img class="sound-on"  @click="muteVideo()" src="icons/sound.svg" alt="sound-icon">
+                        <img class="sound-off" @click="unmuteVideo()" src="icons/muted.svg" alt="sound-icon">
+                    </div>
+                    <button class="captions-btn" @click="showSubs()">CC</button>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h1>THIS CONTENT IS ACCESSIBLE FOR EVERYONE</h1>
+            <div class="content-row">
+                <div class="content-block" v-for="(block, index) in content">
+                    <div class="img-wrapper">
+                        <img :src="'images/' + block.image" :alt="block.name + ' poster'">
+                    </div>
+                    <div class="button-wrapper">
+                        <a class="open-lightbox-btn" :id="index" @click="openLightbox(index)">Watch Now</a>
+                        <a class="download-content-btn" :href="'./includes/' + block.transcript" download>Download Transcript</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/main.js" type="module"></script>   
+</body>
+</html>
